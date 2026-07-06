@@ -685,6 +685,18 @@
       font-weight: 600;
     }
 
+    .contact-block a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+      transition: border-bottom-color 0.25s ease, color 0.25s ease;
+    }
+
+    .contact-block a:hover {
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
     .socials {
       display: flex;
       justify-content: center;
@@ -772,12 +784,17 @@
     }
 
     @media (max-width:768px) {
+      .container {
+        padding: 0 20px;
+      }
+
       .sticky-cta {
         display: flex;
       }
 
       .section .container {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .section-number {
@@ -786,10 +803,41 @@
         margin-bottom: 6px;
       }
 
+      .hero-top {
+        padding: 20px 20px 0;
+        gap: 12px;
+      }
+
+      .org-name .line1 {
+        font-size: 10px;
+      }
+
+      .org-name .line2 {
+        font-size: 12px;
+      }
+
+      .logo-badge {
+        width: 38px;
+        height: 38px;
+      }
+
+      .hero-mid {
+        padding: 0 20px;
+      }
+
+      .hero-title {
+        font-size: clamp(38px, 12vw, 68px);
+      }
+
+      .hero-subtitle {
+        margin-top: 14px;
+      }
+
       .hero-bottom {
         flex-direction: column;
         align-items: flex-start;
         gap: 26px;
+        padding: 24px 20px 24px;
       }
 
       .hero-meta {
@@ -798,6 +846,11 @@
 
       body {
         padding-bottom: 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
       }
     }
 
@@ -839,7 +892,7 @@
       <div class="scroll-cue"><span>Selengkapnya</span><span class="arrow"></span></div>
       <div class="hero-meta">
         Masjid Al-Abiddin, Bulak<br>
-        <strong>25 Juli 2026</strong> · 
+        <strong>25 Juli 2026</strong> ·
       </div>
     </div>
   </section>
@@ -1044,8 +1097,8 @@
       </div>
 
       <div class="reveal">
-        <div class="contact-block">CP: <strong>08876715268</strong> (Iky)</div>
-        <div class="contact-block">CP: <strong>083196714686</strong> (Billa)</div>
+        <div class="contact-block">CP: <a href="https://wa.me/628876715268" target="_blank" rel="noopener"><strong>08876715268</strong></a> (Iky)</div>
+        <div class="contact-block">CP: <a href="https://wa.me/6283196714686" target="_blank" rel="noopener"><strong>083196714686</strong></a> (Billa)</div>
       </div>
 
       <div class="socials reveal">
