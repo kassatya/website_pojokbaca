@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Book Donation — Pojok Baca Padukuhan Bulak</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: transparent;
+      --bg-soft: rgba(0, 30, 70, 0.3);
+      --pink: #ffffff;
+      --maroon: #0a3a6e;
+      --cream: #ffffff;
+      --green: #395742;
+      --blue: #084475;
+      --cream-dim: rgba(255, 255, 255, 0.85);
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Work Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: url('background.png') center center / cover fixed;
+      background-color: #0a3a6e;
+      color: #ffffff;
+      font-family: var(--sans);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: var(--pink);
+      color: var(--maroon);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 28px 28px 0;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .logo-badge img {
+      width: 82%;
+      height: 82%;
+      object-fit: contain;
+    }
+
+    .org-name {
+      font-family: var(--sans);
+      line-height: 1.25;
+    }
+
+    .org-name .line1 {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+
+    .org-name .line2 {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .hero-mid {
+      position: relative;
+      z-index: 3;
+      padding: 0 28px;
+      margin-top: auto;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow-tag::before {
+      content: '';
+      width: 26px;
+      height: 1px;
+      background: #ffffff;
+      display: inline-block;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: 0.92;
+      font-size: clamp(64px, 15vw, 148px);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title .l1,
+    .hero-title .l2 {
+      color: #ffffff;
+    }
+
+    .hero-title .l3 {
+      color: #ffffff;
+      font-style: italic;
+      font-weight: 400;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-size: clamp(16px, 2.6vw, 21px);
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 18px;
+      max-width: 520px;
+      font-style: italic;
+    }
+
+    .hero-bottom {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 34px 28px 30px;
+      gap: 20px;
+    }
+
+    .scroll-cue {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .scroll-cue .arrow {
+      width: 1px;
+      height: 34px;
+      background: linear-gradient(#ffffff, transparent);
+      animation: pulse-down 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-down {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scaleY(0.7);
+        transform-origin: top;
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+    }
+
+    .hero-meta {
+      text-align: right;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.04em;
+    }
+
+    .hero-meta strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section {
+      padding: 86px 0;
+      position: relative;
+    }
+
+    .section .container {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 36px;
+    }
+
+    .section-number {
+      font-family: var(--serif);
+      font-size: 64px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.3);
+      -webkit-text-stroke: 1px #ffffff;
+      line-height: 1;
+      position: sticky;
+      top: 40px;
+      height: fit-content;
+    }
+
+    .section-label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 10px;
+    }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4.4vw, 44px);
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 22px;
+      line-height: 1.12;
+    }
+
+    .section-body p {
+      font-size: 16px;
+      color: #ffffff;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section--blue,
+    .section--green {
+      background: var(--tint, transparent);
+    }
+
+    .section--blue {
+      --tint: linear-gradient(180deg, rgba(0, 20, 60, 0.45), rgba(0, 20, 60, 0.25));
+    }
+
+    .section--green {
+      --tint: linear-gradient(180deg, rgba(0, 20, 60, 0.45), rgba(0, 20, 60, 0.25));
+    }
+
+    .section--blue,
+    .section--green {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* short statement style (section 4) */
+    .statement {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3.6vw, 34px);
+      font-style: italic;
+      color: #ffffff;
+      max-width: 600px;
+      line-height: 1.35;
+    }
+
+    .statement em {
+      color: #ffffff;
+      font-style: normal;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    /* big stat style (section 5) */
+    .stat-row {
+      display: flex;
+      align-items: baseline;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: clamp(72px, 11vw, 120px);
+      color: #ffffff;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .stat-unit {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* event details (section 6) */
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 22px;
+      margin-top: 8px;
+      max-width: 640px;
+    }
+
+    .event-card {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    }
+
+    .event-card:hover {
+      border-color: #ffffff;
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .event-card .ek-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .event-card .ek-value {
+      font-family: var(--serif);
+      font-size: 21px;
+      color: #ffffff;
+    }
+
+    /* timeline (section 7) */
+    .timeline {
+      max-width: 640px;
+      margin-top: 6px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 18px;
+      position: relative;
+      padding-bottom: 32px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--pink);
+      margin-top: 5px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-item.done .timeline-dot,
+    .timeline-item:last-child .timeline-dot {
+      background: var(--pink);
+    }
+
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 22px;
+      bottom: -10px;
+      width: 1px;
+      background: linear-gradient(var(--pink), rgba(237, 171, 206, 0.15));
+    }
+
+    .timeline-text {
+      font-size: 16px;
+      color: #ffffff;
+      padding-top: 1px;
+    }
+
+    .timeline-index {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.75);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ---------- GALLERY ---------- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 16px;
+      max-width: 900px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+      aspect-ratio: 16/10;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 58, 110, 0.85), transparent 70%);
+      opacity: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-text {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      transform: translateY(10px);
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .gallery-item:hover .gallery-text {
+      transform: translateY(0);
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      position: relative;
+      background: transparent;
+      padding: 100px 0 60px;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .cta-inner {
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    }
+
+    .cta-heading {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 50px);
+      font-style: italic;
+      color: #ffffff;
+      max-width: 640px;
+      margin: 0 auto 12px;
+      line-height: 1.25;
+    }
+
+    .cta-heading em {
+      color: #ffffff;
+      font-style: italic;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 480px;
+      margin: 0 auto 44px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 30px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color .25s ease;
+    }
+
+    .btn-primary {
+      background: rgba(255, 255, 255, 0.9);
+      color: #0a3a6e;
+      border: 1px solid #ffffff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(255, 255, 255, 0.3);
+      background: #ffffff;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-secondary:hover {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .qr-row {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .qr-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 18px;
+      border-radius: 4px;
+      width: 168px;
+      backdrop-filter: blur(4px);
+      transition: border-color .3s ease, transform .3s ease;
+    }
+
+    .qr-card:hover {
+      border-color: #ffffff;
+      transform: translateY(-4px);
+    }
+
+    .qr-placeholder {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background:
+        repeating-linear-gradient(45deg, var(--cream) 0 4px, transparent 4px 8px),
+        repeating-linear-gradient(-45deg, var(--cream) 0 4px, transparent 4px 8px);
+      background-blend-mode: screen;
+      background-color: #0f0e0d;
+      opacity: 0.9;
+      border-radius: 2px;
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .qr-image {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      background-color: #ffffff;
+      border-radius: 2px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .qr-placeholder::after {
+      content: 'QR';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--bg);
+      background: var(--cream);
+      width: 46px;
+      height: 46px;
+      margin: auto;
+      border-radius: 50%;
+    }
+
+    .qr-caption {
+      font-size: 12px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.02em;
+    }
+
+    .contact-block {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 8px;
+    }
+
+    .contact-block strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 22px;
+      font-size: 14px;
+    }
+
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    .socials a:hover {
+      opacity: 0.7;
+      transform: translateY(-2px);
+    }
+
+    .socials svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 30px 20px 34px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      position: relative;
+      z-index: 3;
+      background: rgba(0, 20, 60, 0.4);
+    }
+
+    /* ---------- reveal animation ---------- */
+    /* Default: fully visible. Only hidden when JS is confirmed running
+     (html.js) — so the page never breaks if scripting is unavailable. */
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .js .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- mobile sticky CTA ---------- */
+    .sticky-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      background: rgba(5, 25, 70, 0.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 12px 16px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(100%);
+      transition: transform 0.35s ease;
+    }
+
+    .sticky-cta.show {
+      transform: translateY(0);
+    }
+
+    .sticky-cta .btn-primary {
+      width: 100%;
+      justify-content: center;
+    }
+
+    @media (max-width:768px) {
+      .sticky-cta {
+        display: flex;
+      }
+
+      .section .container {
+        grid-template-columns: 1fr;
+      }
+
+      .section-number {
+        position: static;
+        font-size: 44px;
+        margin-bottom: 6px;
+      }
+
+      .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 26px;
+      }
+
+      .hero-meta {
+        text-align: left;
+      }
+
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+
+
+    <div class="hero-top">
+      <div class="logo-badge"><img src="logo_kkn.png" alt="Logo KKN Tematik"></div>
+      <div class="logo-badge"><img src="logo_upn.png" alt="Logo UPN Veteran Yogyakarta"></div>
+      <div class="org-name">
+        <span class="line1">KKN · UPNYK · 84 · 069</span>
+        <span class="line2">KKN 069 Bulak</span>
+      </div>
+    </div>
+
+    <div class="hero-mid">
+      <span class="eyebrow-tag">Revitalisasi Literasi Anak</span>
+      <h1 class="hero-title">
+        <span class="l1">Open</span><br>
+        <span class="l2">Book</span><br>
+        <span class="l3">Donation</span>
+      </h1>
+      <p class="hero-subtitle">untuk Pojok Baca Padukuhan Bulak, Kulon Progo</p>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="scroll-cue"><span>Selengkapnya</span><span class="arrow"></span></div>
+      <div class="hero-meta">
+        Masjid Al-Abiddin, Bulak<br>
+        <strong>25 Juli 2026</strong> · 
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTENT ============ -->
+  <div class="content">
+
+    <!-- 1 -->
+    <section class="section section--blue">
+      <div class="container">
+        <div class="section-number reveal">01<span class="section-label">Tentang</span></div>
+        <div>
+          <h2 class="section-heading reveal">Perkenalan KKN &amp; Padukuhan Bulak</h2>
+          <div class="section-body reveal">
+            <p>Kami adalah kelompok KKN dari Universitas Pembangunan Nasional Veteran Yogyakarta yang bertugas di
+              Padukuhan Bulak, Tuksono, Sentolo, Kabupaten Kulonprogo.</p>
+            <p>Padukuhan Bulak adalah sebuah dusun yang berada di Kabupaten Kulonprogo dengan luas kurang lebih 50
+              hektar, didominasi lahan pemukiman dan pertanian, dengan jumlah penduduk sekitar 600–700 jiwa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="section section--green">
+      <div class="container">
+        <div class="section-number reveal">02<span class="section-label">Latar Belakang</span></div>
+        <div>
+          <h2 class="section-heading reveal">Mengapa Kegiatan Ini Penting</h2>
+          <div class="section-body reveal">
+            <p>Budaya membaca merupakan bekal penting bagi tumbuh kembang anak. Namun, minat baca yang semakin menurun
+              serta terbatasnya akses terhadap buku bacaan yang menarik menjadi tantangan dalam menumbuhkan budaya
+              literasi di lingkungan keluarga dan masyarakat.</p>
+            <p>Melalui kegiatan Open Donasi Buku, kami mengajak seluruh masyarakat untuk berpartisipasi mendukung
+              revitalisasi pojok baca di Masjid Al-Abiddin Padukuhan Bulak, agar menjadi ruang belajar yang lebih
+              nyaman, menarik, dan mampu menumbuhkan semangat membaca bagi anak-anak.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="section section--blue">
+      <div class="container">
+        <div class="section-number reveal">03<span class="section-label">Tujuan</span></div>
+        <div>
+          <h2 class="section-heading reveal">Tujuan &amp; Manfaat</h2>
+          <div class="section-body reveal">
+            <p>Kegiatan ini bertujuan menghimpun donasi buku layak baca untuk memperkaya koleksi pojok baca sekaligus
+              meningkatkan minat baca anak-anak di Padukuhan Bulak. Dengan dukungan dari para donatur, diharapkan
+              tercipta ruang literasi yang lebih hidup, mendorong kebiasaan membaca sejak dini, memperkuat peran
+              keluarga dalam membangun budaya literasi, serta memberikan manfaat jangka panjang bagi perkembangan
+              pengetahuan dan kreativitas anak.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="section section--green">
+      <div class="container">
+        <div class="section-number reveal">04<span class="section-label">Bentuk Kegiatan</span></div>
+        <div>
+          <h2 class="section-heading reveal">Apa yang Kami Lakukan</h2>
+          <p class="statement reveal">Revitalisasi <em>pojok baca</em> di Masjid Al-Abiddin, Padukuhan Bulak.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="section section--blue">
+      <div class="container">
+        <div class="section-number reveal">05<span class="section-label">Sasaran</span></div>
+        <div>
+          <h2 class="section-heading reveal">Sasaran Kegiatan</h2>
+          <div class="stat-row reveal">
+            <span class="stat-number">5–12</span>
+            <span class="stat-unit">Tahun · Anak-anak Padukuhan Bulak</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="section section--green">
+      <div class="container">
+        <div class="section-number reveal">06<span class="section-label">Tempat &amp; Waktu</span></div>
+        <div>
+          <h2 class="section-heading reveal">Tempat &amp; Waktu Pelaksanaan</h2>
+          <div class="event-grid reveal">
+            <div class="event-card">
+              <span class="ek-label">Lokasi</span>
+              <span class="ek-value">Masjid Al-Abiddin, Padukuhan Bulak</span>
+            </div>
+            <div class="event-card">
+              <span class="ek-label">Tanggal</span>
+              <span class="ek-value">25 Juli 2026</span>
+            </div>
+            <div class="event-card">
+              <span class="ek-label">Waktu</span>
+              <span class="ek-value">16.00 WIB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="section section--blue">
+      <div class="container">
+        <div class="section-number reveal">07<span class="section-label">Tahapan</span></div>
+        <div>
+          <h2 class="section-heading reveal">Tahapan Kegiatan</h2>
+          <div class="timeline reveal">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-text"><span class="timeline-index">Tahap 1</span>Merapikan pojok baca</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-text"><span class="timeline-index">Tahap 2</span>Pembuatan sketsa gambar mural</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-text"><span class="timeline-index">Tahap 3</span>Penggambaran mural</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-text"><span class="timeline-index">Tahap 4</span>Penataan ulang pojok baca</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-text"><span class="timeline-index">Tahap 5</span>Peresmian</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="section section--green" id="galeri">
+      <div class="container">
+        <div class="section-number reveal">08<span class="section-label">Galeri</span></div>
+        <div>
+          <h2 class="section-heading reveal">Galeri Pojok Baca</h2>
+          <div class="gallery-grid reveal">
+            <div class="gallery-item">
+              <img src="gallery1.jpg" alt="Mural Dinding Bunga">
+              <div class="gallery-overlay">
+                <span class="gallery-text">Mural Dinding (Bunga)</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="gallery2.jpg" alt="Papan Informasi & Mural Kelinci">
+              <div class="gallery-overlay">
+                <span class="gallery-text">Papan Informasi &amp; Mural Kelinci</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="gallery3.jpg" alt="Suasana Pojok Baca">
+              <div class="gallery-overlay">
+                <span class="gallery-text">Suasana Pojok Baca (Sudut Kiri)</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="gallery4.jpg" alt="Detail Ruangan Pojok Baca">
+              <div class="gallery-overlay">
+                <span class="gallery-text">Suasana Pojok Baca (Sudut Kanan)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" id="donasi">
+
+    <div class="container cta-inner">
+      <p class="cta-heading reveal">Setiap buku adalah <em>satu langkah</em> lebih dekat menuju pojok baca yang lebih
+        hidup.</p>
+      <p class="cta-sub reveal">Dukung revitalisasi Pojok Baca Padukuhan Bulak dengan donasi buku layak baca, atau
+        hubungi kami untuk informasi lebih lanjut.</p>
+
+      <div class="cta-buttons reveal">
+        <a href="#" class="btn btn-primary">Donasi Sekarang</a>
+        <a href="https://wa.me/628876715268" target="_blank" rel="noopener" class="btn btn-secondary">Hubungi Kontak
+          Kami</a>
+      </div>
+
+      <div class="qr-row reveal">
+        <div class="qr-card">
+          <img src="qr_code.jpg" class="qr-image" alt="QR Kontak Person">
+          <div class="qr-caption">QR contact person<br>(WhatsApp Iky)</div>
+        </div>
+        <div class="qr-card">
+          <img src="qr_code_2.jpg" class="qr-image" alt="QR Donasi Buku">
+          <div class="qr-caption">QR contact person<br>(WhatsApp Billa)</div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="contact-block">CP: <strong>08876715268</strong> (Iky)</div>
+        <div class="contact-block">CP: <strong>083196714686</strong> (Billa)</div>
+      </div>
+
+      <div class="socials reveal">
+        <a href="https://instagram.com/kkn.bulak069" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" />
+          </svg>
+          @kkn.bulak069
+        </a>
+        <a href="https://tiktok.com/@kkn.bulak069" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2h3a5.5 5.5 0 0 0 5 5v3a8.5 8.5 0 0 1-5-1.6V15a6 6 0 1 1-6-6h1v3.2a3 3 0 1 0 2 2.83V2z" />
+          </svg>
+          @kkn.bulak069
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>KKN 069 Bulak · UPN Veteran Yogyakarta · 2026</footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <a href="#donasi" class="btn btn-primary">Donasi Sekarang</a>
+  </div>
+
+  <!-- ============ ORNAMENT SVG DEFS (reused via CSS background) ============ -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="flower-unit" viewBox="-50 -50 100 100">
+        <path d="M0,-50 L14,-14 L50,0 L14,14 L0,50 L-14,14 L-50,0 L-14,-14 Z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <script>
+    (function () {
+      // ---- scroll reveal (manual viewport check — works everywhere,
+      //      no dependency on IntersectionObserver support/timing) ----
+      var revealItems = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+      function viewportH() {
+        return window.innerHeight || document.documentElement.clientHeight || 800;
+      }
+      function checkReveal() {
+        var vh = viewportH();
+        revealItems = revealItems.filter(function (el) {
+          var r = el.getBoundingClientRect();
+          var inView = r.top < vh * 0.92 && r.bottom > 0;
+          if (inView) { el.classList.add('in-view'); }
+          return !inView;
+        });
+        if (revealItems.length === 0) {
+          window.removeEventListener('scroll', checkReveal);
+          window.removeEventListener('resize', checkReveal);
+        }
+      }
+      window.addEventListener('scroll', checkReveal, { passive: true });
+      window.addEventListener('resize', checkReveal);
+      window.addEventListener('load', checkReveal);
+      checkReveal();
+      // Failsafe: never leave content permanently invisible.
+      setTimeout(function () {
+        revealItems.forEach(function (el) { el.classList.add('in-view'); });
+        revealItems = [];
+      }, 4000);
+
+      // ---- sticky mobile CTA ----
+      const sticky = document.getElementById('stickyCta');
+      const hero = document.querySelector('.hero');
+      const donasi = document.getElementById('donasi');
+      function checkSticky() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        var donasiTop = donasi.getBoundingClientRect().top;
+        var pastHero = heroBottom < 0;
+        var reachedDonasi = donasiTop < viewportH() * 0.7;
+        sticky.classList.toggle('show', pastHero && !reachedDonasi);
+      }
+      window.addEventListener('scroll', checkSticky, { passive: true });
+      window.addEventListener('resize', checkSticky);
+      window.addEventListener('load', checkSticky);
+      checkSticky();
+
+      // ---- build ornament clusters ----
+      function buildFlowerCluster(className, color) {
+        const els = Array.prototype.slice.call(document.querySelectorAll('.' + className));
+        els.forEach(container => {
+          const ns = 'http://www.w3.org/2000/svg';
+          const svg = document.createElementNS(ns, 'svg');
+          svg.setAttribute('viewBox', '0 0 300 300');
+          svg.setAttribute('width', '100%');
+          svg.setAttribute('height', '100%');
+
+          const units = [
+            { x: 210, y: 60, s: 1.0 }, { x: 255, y: 105, s: 0.75 }, { x: 170, y: 100, s: 0.65 },
+            { x: 230, y: 160, s: 0.9 }, { x: 150, y: 160, s: 0.55 }, { x: 270, y: 210, s: 0.6 },
+            { x: 190, y: 210, s: 0.45 }, { x: 120, y: 110, s: 0.4 }, { x: 250, y: 30, s: 0.5 }
+          ];
+          units.forEach(u => {
+            const use = document.createElementNS(ns, 'use');
+            use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#flower-unit');
+            use.setAttribute('transform', `translate(${u.x},${u.y}) scale(${u.s})`);
+            use.setAttribute('fill', color);
+            svg.appendChild(use);
+          });
+          container.appendChild(svg);
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>
